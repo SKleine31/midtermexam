@@ -1,52 +1,81 @@
-import React, { useState } from "react";
-import "./App.css";
+import { useState } from 'react';
+import './App.css';
 
-// Display Component Function
-function Display({ value }) {
+function App() {
+  const [display, setDisplay] = useState('10 Things That Require Zero Talent');
+
+  const handleClick = (key) => {
+    switch (key) {
+      case '1':
+        setDisplay('Being On Time');
+        break;
+      case '2':
+        setDisplay('Making An Effort');
+        break;
+      case '3':
+        setDisplay('Being High Energy');
+        break;
+      case '4':
+        setDisplay('Having A Positive Attitude');
+        break;
+      case '5':
+        setDisplay('Being Passionate');
+        break;
+      case '6':
+        setDisplay('Using Good Body Language');
+        break;
+      case '7':
+        setDisplay('Being Coachable');
+        break;
+      case '8':
+        setDisplay('Doing A Little Extra');
+        break;
+      case '9':
+        setDisplay('Being Prepared');
+        break;
+      case '0':
+        setDisplay('Having A Strong Work Ethic');
+        break;
+      case 'NAME':
+        setDisplay('SEAN AETHAN KLEINE T. NUNAG');
+        break;
+      case 'SUBJ':
+        setDisplay('C-PCIT9');
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
-    <input
-      className="display"
-      type="text"
-      value={value}
-      disabled
-    />
-  );
-}
-
-// Button Component Function
-function Button({ label, className = "", onClick }) {
-  return (
-    <button className={className} onClick={onClick}>
-      {label}
-    </button>
-  );
-}
-
-export default function App() {
- 
-  return (
-    <div className="container">
-      <div className="calculator">
-        <h1 className="header">JUAN DELA CRUZ - IT3C</h1>
-        <Display value="10 Things That Require Zero Talent" />
-        <div className="buttons">
-          <Button label="7" />
-          <Button label="8" />
-          <Button label="9" />
-
-          <Button label="4" />
-          <Button label="5" />
-          <Button label="6" />
-
-          <Button label="1" />
-          <Button label="2" />
-          <Button label="3" />
-
-          <Button label="NAME" />
-          <Button label="0" />
-          <Button label="SUBJ" />
+    <div className="app-container">
+      <div className="card">
+        <h1 className="header-title">SEAN AETHAN KLEINE T. NUNAG - IT3A</h1>
+        
+        <div className="display-screen">
+          {display}
+        </div>
+        
+        <div className="keypad-grid">
+          <button className="btn" onClick={() => handleClick('7')}>7</button>
+          <button className="btn" onClick={() => handleClick('8')}>8</button>
+          <button className="btn" onClick={() => handleClick('9')}>9</button>
+          
+          <button className="btn" onClick={() => handleClick('4')}>4</button>
+          <button className="btn" onClick={() => handleClick('5')}>5</button>
+          <button className="btn" onClick={() => handleClick('6')}>6</button>
+          
+          <button className="btn" onClick={() => handleClick('1')}>1</button>
+          <button className="btn" onClick={() => handleClick('2')}>2</button>
+          <button className="btn" onClick={() => handleClick('3')}>3</button>
+          
+          <button className="btn btn-action" onClick={() => handleClick('NAME')}>NAME</button>
+          <button className="btn" onClick={() => handleClick('0')}>0</button>
+          <button className="btn btn-action" onClick={() => handleClick('SUBJ')}>SUBJ</button>
         </div>
       </div>
     </div>
   );
 }
+
+export default App;
